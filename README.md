@@ -9,9 +9,7 @@ ML pipeline contains four main steps:
 - kNN based on cosine distance on top of feature vectors. 
 
 ML pipeline is encapsulated into Index class which provides two main methods: `add` and `find`. 
-Index can be used in two ways: eyes-only (works better with masked people) and full faces (works better with open faces).
-
-(See [face/](https://github.com/feanor-on-fire/face_recognition/tree/master/face) for details). 
+Index can be used in two ways: eyes-only (works better with masked people) and full faces (works better with open faces). See [face/](https://github.com/feanor-on-fire/face_recognition/tree/master/face) for details. 
 
 ### Examples 
 
@@ -24,10 +22,9 @@ Using only eyes area
 ![using only eyes area](https://github.com/feanor-on-fire/face_recognition/blob/master/match_eyes.jpg?raw=true)
 
 ### Known issues: 
-- add CUDA support for inference; 
+- add CUDA support for faster inference; 
 - adapt alignment algorithm from InsightFace instead of own implementation to decrease distribution shift; 
 - nearest neighbours algoritm is full-scan (O(n) complexity, needs to be replaced with approximate NN search, e.g. `nmslib`).
-
 
 ## API / Wrappers 
 API is written with Tornado framework.
