@@ -13,10 +13,21 @@ Index can be used in two ways: eyes-only (works better with masked people) and f
 
 (See [face/](https://github.com/feanor-on-fire/face_recognition/tree/master/face) for details). 
 
+### Examples 
+
+Using full face
+
+![using full face](https://github.com/feanor-on-fire/face_recognition/blob/master/match_full.jpg?raw=true)
+
+Using only eyes area
+
+![using only eyes area](https://github.com/feanor-on-fire/face_recognition/blob/master/match_eyes.jpg?raw=true)
+
 ### Known issues: 
 - add CUDA support for inference; 
 - adapt alignment algorithm from InsightFace instead of own implementation to decrease distribution shift; 
 - nearest neighbours algoritm is full-scan (O(n) complexity, needs to be replaced with approximate NN search, e.g. `nmslib`).
+
 
 ## API / Wrappers 
 API is written with Tornado framework.
