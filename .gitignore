@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 *.h5
-*.txt
 *.json
 *.csv
 
