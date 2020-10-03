@@ -16,6 +16,7 @@ Index can be used in two ways: eyes-only (works better with masked people) and f
 ### Known issues: 
 - add CUDA support for inference; 
 - adapt alignment algorithm from InsightFace instead of own implementation to decrease distribution shift; 
+- nearest neighbours algoritm is full-scan (O(n) complexity, needs to be replaced with approximate NN search, e.g. `nmslib`).
 
 ## API / Wrappers 
 API is written with Tornado framework.
