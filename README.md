@@ -1,16 +1,23 @@
 ## Description
 This repository contains face recognition service: ML scripts & API to use them.
-## Pipeline
-#### 1. Face detection
-First step is detect human face on image and crop it.
-Face detection is implemented with open-source library MTCNN. 
-More details in projects repository https://github.com/ipazc/mtcnn
-#### 2. Feature extractor
-After face detection whe need to extract face embedding. 
-In this projects we use pre-trained FaceNet by Hiroki Taniai described in this repository https://github.com/nyoki-mtl/keras-facenet
-#### 3. Classifier (IN PROGRESS)
-Final step is use SVM classifier with gotten embeddings.
-#### 4. API
+
+## ML Pipeline
+ML pipeline contains four main steps:
+- face detection to crop faces from images (RetinaFace is used);
+- face alignment to descrease the distribution variance; 
+- feature extraction ([InsightFace](https://github.com/deepinsight/insightface) is used);
+- kNN based on cosine distance on top of feature vectors. 
+
+ML pipeline is encapsulated into Index class which provides two main methods: `add` and `find`. 
+Index can be used in two ways: eyes-only (works better with masked people) and full faces (works better with open faces).
+
+(See [face/](https://github.com/feanor-on-fire/face_recognition/tree/master/face) for details). 
+
+### Known issues: 
+- add CUDA support for inference; 
+- adapt alignment algorithm from InsightFace instead of own implementation to decrease distribution shift; 
+
+## API / Wrappers 
 API is written with Tornado framework.
 End-points:
 - /analyze_face - handle post request, that contains image with human face/faces as payload. Return back results of recognition by classifier with extracted embeddings.
